@@ -18,6 +18,37 @@ Speed
 
 User experience
 
+## CODE
+```
+import pandas as pd df=pd.read_csv(r"C:\Users\Downloads\titanic_dataset.csv") df
+df.shape
+df.set_index("PassengerId",inplace=True) df
+df.nunique
+df['Sex'].value_counts()
+df.Survived.unique()
+df.rename(columns={"Sex":"Gender"},inplace=True)
+import seaborn as sns
+sns.countplot(data=df)
+sns.countplot(x="Survived",hue="Gender",data=df)
+sns.catplot(x="Survived",hue="Gender",data=df,kind="count")
+sns.catplot(x="Survived",hue="Gender",data=df,kind="violin")
+sns.boxplot(data=df)
+df.boxplot(column="Survived",by="Gender")
+sns.scatterplot(data=df)
+sns.scatterplot(x=df['Age'],y=df['Fare'])
+sns.jointplot(x='Age',y='Fare',data=df)
+sns.jointplot(x='Age',y='Fare',data=df,kind="kde")
+sns.jointplot(x='Age',y='Fare',data=df,kind="hist")
+sns.catplot(x='Gender',col='Survived',data=df,kind='count',color='green')
+sns.pairplot(data=df) image corr1=df.select_dtypes(include=["number"]).corr()
+sns.heatmap(corr1,annot=True)
+sns.catplot(x='Gender',col='Survived',data=df,kind='count',hue="Pclass")
+import matplotlib.pyplot as plt
+fig,ax1=plt.subplots(figsize=(8,5))
+pt=sns.boxplot(ax=ax1,x='Pclass',y='Age',hue='Gender',data=df)
+```
+
 ## OUTPUT
+
 
 ## RESULT
